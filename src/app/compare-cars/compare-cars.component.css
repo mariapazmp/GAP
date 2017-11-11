@@ -1,0 +1,32 @@
+#compare-cars .compare-container {
+	padding: 0 30px;
+}
+
+#compare-cars .specs {
+	width: 100%;
+	padding: 0 15px;
+	margin: 20px 0;
+}
+
+#compare-cars .specs table {
+	background-color: white
+}
+
+#compare-cars .image {
+	position: relative;
+}
+
+#compare-cars .top-info {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	background-color: #dab601;
+	padding: 8px 15px;
+	color: #1a1a1a;
+	font-family: 'Josefin Sans', sans-serif;
+	font-style: italic;
+	font-size: 1.3rem;
+	-webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.62);
+	-moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.62);
+	box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.62);
+}

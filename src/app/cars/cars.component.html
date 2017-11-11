@@ -1,0 +1,123 @@
+<header>
+    <nav id="main-menu" class="fixed-top">
+      <div class="container">
+        <div class="navbar-brand"><a href="#">Automotrix</a></div>
+        <ul>
+          <li *ngIf="!readyToCompare" (click)="onCompareMode()">
+            <i class="fa fa-exchange " aria-hidden="true"></i>
+            <span>Compare Cars</span>
+          </li>
+          <li *ngIf="readyToCompare" [class.active]="readyToCompare" 
+          routerLink="/compare/{{compareList[0].id}}/{{compareList[1].id}}">
+            <i class="fa fa-check-square" aria-hidden="true"></i>
+            <span>Compare!</span>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+</header>
+
+<section>
+    <main>
+        <div id="search">
+          <div class="black-container">
+            <div class="container">
+              <div class="logo"><img src="../assets/img/logo.svg"></div>
+              <h1>Automotrix</h1>
+              <form>
+                <input name="brand" [(ngModel)]="brand" placeholder="Search by brand...">
+                <span (click)="brandFilter(brand)" class="search-button"><i class="fa fa-search" aria-hidden="true"></i></span> 
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div id="search-results">
+          <div class="alert-info" >
+            <div class="empty-state" *ngIf="carros.length==0">
+              <h2>No cars found</h2><span>Please make a new search by brand</span>
+            </div>
+            <h2 *ngIf="isComparing">Please choose 2 cars you want to compare</h2>
+          </div>
+
+          <div class="row">
+            <div class="item col-12 col-sm-6 col-md-3" *ngFor="let car of carros; let i = index">
+              
+              <div class="image">
+
+                  <div class="buttons">
+                    <div *ngIf="isComparing && !car.selected" (click)="toCompare(car, i); car.selected = true" class="add-btn option" [class.selected]="car.selected">Add Car</div>
+
+                    <div *ngIf="isComparing && car.selected" (click)="car.selected = false" class="remove-btn option" (click)="isCarAdded = false">Remove</div>
+                  </div>
+                  
+                  
+                  <img class="img-fluid" src="../assets/img/models/{{car.id}}.jpg" data-toggle="modal" data-target="#detailsModal" (click)="onSelect(car)">
+              </div>
+
+              <div class="details">
+                <h4>{{car.model}}</h4>
+                <p><span class="subtitle">{{car.brand}}</span><span class="year">{{car.year}}</span></p>
+                <div class="price"><span>{{car.price | currency:'USD'}}</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="detailsModal" *ngIf="selectedCar">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">{{selectedCar.model}}</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+
+                <div class="car-image" data-toggle="modal" data-target="#detailsModal">
+                  <img class="img-fluid" src="../assets/img/models/{{selectedCar.id}}.jpg">
+                  <p>{{selectedCar.brand}}</p>
+                </div>
+
+                <div class="details">
+                  <p>{{selectedCar.description}}</p>
+
+                  <div class="car-specs row">
+                    <div class="col-12 col-sm-6 col-md-6">
+                        <b>Price:</b>
+                        <p>{{selectedCar.price | currency:'USD'}}</p>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6">
+                        <b>Year:</b>
+                        <p>2006</p>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6">
+                        <b>Engine:</b>
+                        <p>{{selectedCar.engine}}</p>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6">
+                        <b>Transmission:</b>
+                        <p>{{selectedCar.transmission}}</p>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6">
+                        <b>Drivetrain:</b>
+                        <p>{{selectedCar.drivetrain}}</p>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6">
+                        <b>Seats:</b>
+                        <p>{{selectedCar.seats}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+    </main>
+</section>
