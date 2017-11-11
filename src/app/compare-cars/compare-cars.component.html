@@ -1,12 +1,11 @@
+
 <header>
     <nav id="main-menu" class="fixed-top">
-      <div class="container">
-        <div class="navbar-brand"><a href="#">Automotrix Home</a></div>
-      </div>
+        <div class="navbar-brand" (click)="goBack()"><i class="fa fa-chevron-left" aria-hidden="true"></i><a href="#">Automotrix Home</a></div>
     </nav>
 </header>
 
-<section id="compare-cars">
+<section id="compare-cars" class="container-fluid">
     <main>
         <div id="carsCarousel" class="carousel slide hidden-md-up" data-ride="carousel">
 		  <div class="carousel-inner" role="listbox">
@@ -27,53 +26,46 @@
 		  </a>
 		</div>
 
-		<div class="compare-container">
-			<div class="hidden-sm-down row">
-				<div class="image col-6 col-md-6" *ngFor="let car of compareList">
-					<img class="img-fluid" src="../assets/img/models/{{car.id}}.jpg">
-					<span class="top-info">{{car.model}}</span>
-				</div>
-
-				<div class="specs">
-					<table class="table table-hover">
-				
-					  <tbody>
-					    <tr>
-					      <th scope="row">Brand</th>
-					      <td *ngFor="let car of compareList">{{car.brand}}</td>
-					    </tr>
-					    <tr>
-					      <th scope="row">Price (USD)</th>
-					      <td *ngFor="let car of compareList">{{car.price| currency:'USD'}}</td>
-					    </tr>
-					    <tr>
-					      <th scope="row">Year</th>
-					      <td *ngFor="let car of compareList">{{car.year}}</td>
-					    </tr>
-					    <tr>
-					      <th scope="row">Engine</th>
-					      <td *ngFor="let car of compareList">{{car.engine}}</td>
-					    </tr>
-					    <tr>
-					      <th scope="row">Transmission</th>
-					      <td *ngFor="let car of compareList">{{car.transmission}}</td>
-					    </tr>
-					    <tr>
-					      <th scope="row">Drivetrain</th>
-					      <td *ngFor="let car of compareList">{{car.drivetrain}}</td>
-					    </tr>
-					    <tr>
-					      <th scope="row">Seats</th>
-					      <td *ngFor="let car of compareList">{{car.seats}}</td>
-					    </tr>
-					  </tbody>
-					</table>
-				</div>
+		<div class="row">
+			<div class="image col-6 col-md-6 hidden-sm-down" *ngFor="let car of compareList">
+				<img class="img-fluid" src="../assets/img/models/{{car.id}}.jpg">
+				<span class="top-info">{{car.model}}</span>
 			</div>
 
-
+			<div class="specs">
+				<table class="table table-hover">				
+				  <tbody>
+				    <tr>
+				      <th scope="row">Brand</th>
+				      <td *ngFor="let car of compareList">{{car.brand}}</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">Price (USD)</th>
+				      <td *ngFor="let car of compareList">{{car.price| currency:'USD'}}</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">Year</th>
+				      <td *ngFor="let car of compareList">{{car.year}}</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">Engine</th>
+				      <td *ngFor="let car of compareList">{{car.engine}}</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">Transmission</th>
+				      <td *ngFor="let car of compareList">{{car.transmission}}</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">Drivetrain</th>
+				      <td *ngFor="let car of compareList">{{car.drivetrain}}</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">Seats</th>
+				      <td *ngFor="let car of compareList">{{car.seats}}</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
 		</div>
-		
-
     </main>
 </section>

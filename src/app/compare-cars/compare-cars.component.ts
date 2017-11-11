@@ -18,14 +18,14 @@ export class CompareCarsComponent implements OnInit {
 	cars = CARS;
 	compareList: Array<Car> = [];
 
-
 	ngOnInit() {
 		let car1 = this.route.snapshot.paramMap.get('idCar1');
 		let car2 = this.route.snapshot.paramMap.get('idCar2');
 
-    	this.compareList = this.cars.filter(x => x.id == car1 || x.id == car2);	
-    	console.log(this.compareList);
+    	this.compareList = this.cars.filter(x => x.id == car1 || x.id == car2);
   	}
 
-  	
+  	goBack(): void {
+      this.location.back();
+    }
 }

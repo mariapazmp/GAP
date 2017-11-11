@@ -1,10 +1,3 @@
-/*
-COLORS:
-
-Yellow: #dab601;
-
-*/
-
 
 /* ---------
   Code Challenge for GAP by
@@ -34,6 +27,12 @@ Yellow: #dab601;
     padding-bottom: 20px;
 }
 
+@media (max-width: 576px) { 
+	#search h1 {
+		font-size: 8vmin;
+	}
+}
+
 #search form {
 	margin-bottom: 20px;
 }
@@ -48,6 +47,16 @@ Yellow: #dab601;
     background-color: rgba(0,0,0,0.7);
     border-radius: 2px;
     border-right: none;
+}
+
+@media (max-width: 576px) { 
+	#search input {
+		width: 80%;
+	}
+}
+
+#search .logo {
+	margin-bottom: 20px;
 }
 
 #search .search-button {
@@ -122,41 +131,42 @@ Yellow: #dab601;
 	padding: 5px 10px;
 }
 
-#search-results {
+#searchResults {
 	text-align: left;
     font-size: 0;
     margin: 30px 0;
 }
 
-#search-results h2 b{
+#searchResults h2 b{
 	color: #00be8f;
 }
 
-#search-results .item {
+#searchResults .item {
 	font-size: 1rem;
 }
 
-#search-results .item .image {
+#searchResults .item .image {
 	position: relative;
 }
 
-#search-results .item .image img {
+#searchResults .item .image img {
 	cursor: pointer;
 }
 
-#search-results .item .details {
+
+#searchResults .item .details {
 	width: 100%;
 	float: none;
 	height: auto;
 }
 
-#search-results .item .buttons {
+#searchResults .item .buttons {
 	position: absolute;
 	top: 10px;
 	right: 10px;
 }
 
-#search-results .item .option {
+#searchResults .item .option {
 	float: left;
 	margin-left: 5px;
 	border-radius: 5px;
@@ -165,14 +175,64 @@ Yellow: #dab601;
 	background-color: #dab601;
 	padding: 5px 20px;
 	z-index: 10;
+	transition: background-color 1s;
 }
 
-#search-results .item .remove-btn {
+#searchResults .item .option:hover {
+	background-color: #ff9800;
+	cursor: pinter;
+}
+
+#searchResults .item .remove-btn {
 	border: 1px #868686 solid;
     background-color: rgba(0, 0, 0, 0.6);
     right: 10px;
 }
-#search-results .item .selected {
+#searchResults .item .selected {
 	border: 1px #868686 solid;
     background-color: rgba(0, 0, 0, 0.6);
+}
+
+#detailsModal {
+
+}
+
+#detailsModal .modal-title {
+	margin: 0 auto;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+#detailsModal .car-image{
+	position: relative;
+}
+
+#detailsModal .car-image .price {
+	position: absolute;
+	bottom: 20px;
+	width: 100%
+}
+
+#detailsModal .car-image span {
+	display: block;
+	margin: 0 auto;
+	padding: 8px 15px;
+	color: white;
+	background-color: rgba(0,0,0,0.3);
+	border: 1px white solid;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#detailsModal .details {
+	margin: 20px 0;
+}
+
+#detailsModal .car-specs {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 1.2rem;
+}
+
+#detailsModal .car-specs div {
+	margin-bottom: 15px;
 }

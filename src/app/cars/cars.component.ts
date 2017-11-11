@@ -10,21 +10,22 @@ import { LoadDataService } from '../load-data.service';
 })
 export class CarsComponent {
 
-  	carros = CARS;
+  	cars = CARS; 
 	selectedCar: Car;
 
 	brand: String = '';
+	compareURL: String = '';
 	isComparing: Boolean = false;
-	compareList: Array<Car> = [];
 	readyToCompare: Boolean =  false;
+	compareList: Array<Car> = [];
 
 	onSelect(car: Car): void {
 	  this.selectedCar = car;
 	}
 
 	brandFilter(brand: String): void {
-		this.carros = CARS;
-	  	this.carros = this.carros.filter(x => x.brand.toLowerCase() == brand.toLowerCase());
+		this.cars = CARS;
+	  	this.cars = this.cars.filter(x => x.brand.toLowerCase() == brand.toLowerCase());
 	}
 
 	onCompareMode(): void {
@@ -32,20 +33,38 @@ export class CarsComponent {
 	}
 
 	toCompare(car: Car): void {
-		if(this.compareList.length < 2) {
+		if (this.compareList.length < 2) {
 			this.compareList.push(car);
-			console.log("comparedList", this.compareList);
 
-			if(this.compareList.length == 2){
+			if (this.compareList.length == 2) {
 			  	this.readyToCompare = true;
+
+			  	var carId1 = this.compareList[0].id;
+				var carId2 = this.compareList[1].id;
+
+	  			this.compareURL = "/compare/"+carId1+"/"+carId2;
 			}
 		} else {
-			console.log("Error, 2 cars only")
+			console.log("Error, 2 cars only");
+			this.readyToCompare = false;
 		}		
 	}
 
+	removeCarSelected(car: Car): void {
+		var indexArray = this.compareList.indexOf(car);
+		if (indexArray > -1) {
+		    this.compareList.splice(indexArray, 1);
+		}
+
+		if (this.compareList.length != 2) {
+			this.readyToCompare = false;
+		}
+	}
+
 		
-	/*cars: Car[];
+	/* The following code can be used for the "load Data from JSON" implementation:
+
+	cars: Car[];
 	 
 	  constructor(private loadDataService: LoadDataService) { }
 

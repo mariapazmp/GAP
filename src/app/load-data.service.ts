@@ -9,8 +9,11 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class LoadDataService {
 
+/* This service will get the JSON info when that option will be full implemented. */
+
+
   constructor(private http: Http) {
-        /*var obj;
+     /*var obj;
         this.getJSON().subscribe(data => obj=data, error => console.log(error));*/
     }
 
