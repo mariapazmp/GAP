@@ -33,16 +33,17 @@ export class CarsComponent {
 	}
 
 	toCompare(car: Car): void {
-		if (this.compareList.length < 2) {
+		if (this.compareList.length < 3) {
 			this.compareList.push(car);
 
-			if (this.compareList.length == 2) {
+			if (this.compareList.length == 3) {
 			  	this.readyToCompare = true;
 
 			  	var carId1 = this.compareList[0].id;
 				var carId2 = this.compareList[1].id;
+				var carId3 = this.compareList[2].id;
 
-	  			this.compareURL = "/compare/"+carId1+"/"+carId2;
+	  			this.compareURL = "/compare/"+carId1+"/"+carId2+"/"+carId3;
 			}
 		} else {
 			console.log("Error, 2 cars only");

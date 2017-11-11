@@ -21,8 +21,8 @@ export class CompareCarsComponent implements OnInit {
 	ngOnInit() {
 		let car1 = this.route.snapshot.paramMap.get('idCar1');
 		let car2 = this.route.snapshot.paramMap.get('idCar2');
-
-    	this.compareList = this.cars.filter(x => x.id == car1 || x.id == car2);
+    let car3 = this.route.snapshot.paramMap.get('idCar3');
+    	this.compareList = this.cars.filter(x => x.id == car1 || x.id == car2 || x.id == car3);
   	}
 
   	goBack(): void {

@@ -5,7 +5,7 @@ import { CompareCarsComponent } from './compare-cars/compare-cars.component';
 import { CarsComponent } from './cars/cars.component';
 
 const routes: Routes = [
-  { path: 'compare/:idCar1/:idCar2', component: CompareCarsComponent },
+  { path: 'compare/:idCar1/:idCar2/:idCar3', component: CompareCarsComponent },
   { path: '', component: CarsComponent }
 ];
 
